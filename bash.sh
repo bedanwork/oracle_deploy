@@ -1,11 +1,1 @@
-#!/bin/bash
-set -e
-
-# Change ownership and permissions
-echo "Fixing permissions for Oracle data directory..."
-chown -R 54321:54321 /opt/oracle/oradata
-chmod -R 775 /opt/oracle/oradata
-
-# Start the Oracle database chmod +x entrypoint.sh
-echo "Starting Oracle Database..."
-exec /bin/bash -c "$@"
+docker exec -u root -it 9a90aa53adb6 bash -c "chown -R 54321:54321 /opt/oracle/oradata && chmod -R 775 /opt/oracle/oradata"

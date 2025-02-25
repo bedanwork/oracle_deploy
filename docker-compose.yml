@@ -16,7 +16,6 @@ services:
       - /home/oracle/oracle-data:/opt/oracle/oradata
       - /home/oracle/dmp_data:/home/oracle/dmp_data
       - /home/oracle/extract_data:/home/oracle/extract_data
-    entrypoint: ["/bin/bash", "/entrypoint.sh"]
 volumes:
   oracle-data:
     driver: local
