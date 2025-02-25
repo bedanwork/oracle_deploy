@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    container_name: oracle-db
+    image: doctorkirk/oracle-19c
+    restart: always
+    ports:
+      - "1521:1521"  # Oracle DB Port
+      - "5500:5500"  # Enterprise Manager
+    environment:
+      ORACLE_SID: "ORCLCDB"
+      ORACLE_PDB: "ORCLPDB1"
+      ORACLE_PWD: 
+    volumes:
+      - /home/oracle/oracle-data:/opt/oracle/oradata
+      - /home/oracle/dmp_data:/home/oracle/dmp_data
+      - /home/oracle/extract_data:/home/oracle/extract_data
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+volumes:
+  oracle-data:
+    driver: local
