@@ -1,0 +1,5 @@
+# download python3.10.12
+oracledb
+python-dotenv
+faker
+Pillow
