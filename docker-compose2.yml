@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  oracle-image-extractor:
+    build: .
+    environment:
+      - ORACLE_HOST=${ORACLE_HOST}
+      - ORACLE_PORT=${ORACLE_PORT}
+      - ORACLE_SERVICE_NAME=${ORACLE_SERVICE_NAME}
+      - ORACLE_USER=${ORACLE_USER}
+      - ORACLE_PASSWORD=${ORACLE_PASSWORD}
+      - ORACLE_TABLE_NAME=${ORACLE_TABLE_NAME}
+      - IMG_DIR=/app/images
+      - BATCH_SIZE=${BATCH_SIZE}
+      - OFFSET=${OFFSET}
+    volumes:
+      - /home/oracle/images:/app/images
